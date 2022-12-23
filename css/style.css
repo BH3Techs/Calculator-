@@ -1,0 +1,24 @@
+body{
+    display: flex;
+    justify-content: center;
+
+}
+.cal-frame{
+   border-style: solid;
+   border-color: black;  
+   display: flex;  
+   flex-flow: wrap;
+   
+}
+.numbers{
+    width: 100px
+}
+.operations{
+    width: min-content;
+}
+.clear{
+    display: flex;
+    flex-direction: column;
+    
+}
+
