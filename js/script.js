@@ -72,5 +72,8 @@ ops.addEventListener('click', (e) =>{
     screen.textContent = numBfrOp.concat(op);
 });
 
-
+equal.addEventListener('click', () =>{
+    ans = operate(op,numBfrOp, numAftrOp);
+    scrnValue.textContent=ans;
+})
 
