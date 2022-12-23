@@ -29,16 +29,16 @@ function operate(operation, num1, num2){
     let answer = 0;
     switch (operation) {
         case '+':
-            answer = add(num1. num2);
+            answer = add(num1, num2);
             break;
         case '-':
-            answer = subtract(num1. num2);
+            answer = subtract(num1,num2);
             break;
         case '/':
-            ananswers = divide(num1. num2);
+            answer = divide(num1, num2);
             break;
         case '*':
-            answer = multiply(num1. num2);
+            answer = multiply(num1, num2);
             break;
     }
     return answer;
@@ -73,7 +73,9 @@ ops.addEventListener('click', (e) =>{
 });
 
 equal.addEventListener('click', () =>{
+    console.log(typeof numAftrOp)
     ans = operate(op,numBfrOp, numAftrOp);
+    console.log(ans)
     scrnValue.textContent=ans;
 })
 
