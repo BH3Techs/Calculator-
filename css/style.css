@@ -7,7 +7,7 @@ body{
    border-style: solid;
    border-color: black;  
    display: flex;  
-   flex-flow: wrap;
+   flex-flow: column wrap;
    
 }
 .numbers{
@@ -19,6 +19,14 @@ body{
 .clear{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     
+}
+.screen{
+    text-align: right;
+    border-style: double;
+}
+.funct{
+    display: flex;
 }
 
