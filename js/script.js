@@ -1,5 +1,13 @@
 let ans =0;
 let numBfrOp;
+let numAftrOp =0;
+let op = '..';
+
+const btn = document.querySelector('.numbers');
+const screen =document.querySelector('.screen');
+const scrnValue = document.querySelector('#screenValue');
+const ops = document.querySelector('.operations');
+const equal = document.querySelector('.equal');
 
 function add (num1,num2) {
     return num1+num2;
@@ -18,35 +26,51 @@ function divide(num1, num2){
 };
 
 function operate(operation, num1, num2){
+    let answer = 0;
     switch (operation) {
         case '+':
-            ans = add(num1. num2);
+            answer = add(num1. num2);
             break;
         case '-':
-            ans = subtract(num1. num2);
+            answer = subtract(num1. num2);
             break;
         case '/':
-            ans = divide(num1. num2);
+            ananswers = divide(num1. num2);
             break;
         case '*':
-            ans = multiply(num1. num2);
+            answer = multiply(num1. num2);
             break;
     }
+    return answer;
 };
 
-const btn = document.querySelector('.numbers');
-const screen =document.querySelector('.screen');
-const scrnValue = document.querySelector('#screenValue');
 btn.addEventListener('click',(e) =>{
-    console.log(scrnValue.className)
     if(scrnValue.className == 'zero'){
         numBfrOp = e.target.textContent;
         screen.textContent = numBfrOp;
         scrnValue.className = 'non-zero';
     }else{
-        numBfrOp =  numBfrOp.concat(e.target.textContent);
-        screen.textContent = numBfrOp;
+        
+        if(op == '..'){
+            numBfrOp =  numBfrOp.concat(e.target.textContent);
+            screen.textContent = numBfrOp;
+        }else{
+            if(numAftrOp !== 0){
+                numAftrOp = numAftrOp.concat(e.target.textContent);
+                screen.textContent =numBfrOp.concat(op).concat(numAftrOp);
+            }else{
+                numAftrOp = e.target.textContent;
+                screen.textContent =numBfrOp.concat(op).concat(numAftrOp);
+            }
+        }
     }
-    
-    
+  
 });
+
+ops.addEventListener('click', (e) =>{
+    op = e.target.textContent;
+    screen.textContent = numBfrOp.concat(op);
+});
+
+
+

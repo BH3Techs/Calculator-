@@ -16,7 +16,7 @@ body{
 .operations{
     width: min-content;
 }
-.clear{
+.final{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
