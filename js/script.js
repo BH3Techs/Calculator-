@@ -30,4 +30,11 @@ function operate(operation, num1, num2){
             ans = multiply(num1. num2);
             break;
     }
-}
+};
+
+const btn = document.querySelector('.numbers');
+const screen =document.querySelector('.screen');
+btn.addEventListener('click',(e) =>{
+    console.log(e.target.textContent)
+    screen.textContent = e.target.textContent;
+});
