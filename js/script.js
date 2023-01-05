@@ -3,7 +3,7 @@ let numBfrOp;
 let numAftrOp = 0;
 let op = "..";
 
-const btn = document.querySelector(".numbers");
+const btn = document.querySelectorAll(".numbers");
 const screen = document.querySelector(".screen");
 const scrnValue = document.querySelector("#screenValue");
 const ops = document.querySelector(".operations");
@@ -43,27 +43,29 @@ function operate(operation, num1, num2) {
   }
   return answer;
 }
-
-btn.addEventListener("click", (e) => {
-  if (scrnValue.className == "zero") {
-    numBfrOp = e.target.textContent;
-    screen.textContent = numBfrOp;
-    scrnValue.className = "non-zero";
-  } else {
-    if (op == "..") {
-      numBfrOp = numBfrOp.concat(e.target.textContent);
+btn.forEach(num => {
+  num.addEventListener("click", (e) => {
+    if (scrnValue.className == "zero") {
+      numBfrOp = e.target.textContent;
       screen.textContent = numBfrOp;
+      scrnValue.className = "non-zero";
     } else {
-      if (numAftrOp !== 0) {
-        numAftrOp = numAftrOp.concat(e.target.textContent);
-        screen.textContent = numBfrOp.concat(op).concat(numAftrOp);
+      if (op == "..") {
+        numBfrOp = numBfrOp.concat(e.target.textContent);
+        screen.textContent = numBfrOp;
       } else {
-        numAftrOp = e.target.textContent;
-        screen.textContent = numBfrOp.concat(op).concat(numAftrOp);
+        if (numAftrOp !== 0) {
+          numAftrOp = numAftrOp.concat(e.target.textContent);
+          screen.textContent = numBfrOp.concat(op).concat(numAftrOp);
+        } else {
+          numAftrOp = e.target.textContent;
+          screen.textContent = numBfrOp.concat(op).concat(numAftrOp);
+        }
       }
     }
-  }
+  });
 });
+
 
 ops.addEventListener("click", (e) => {
   op = e.target.textContent;
