@@ -10,7 +10,7 @@ body{
    flex-flow: column wrap;
    
 }
-.numbers{
+.all-numbers{
     width: 100px
 }
 .operations{
