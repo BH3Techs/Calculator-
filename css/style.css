@@ -8,10 +8,15 @@ body{
    border-color: black;  
    display: flex;  
    flex-flow: column wrap;
+   padding: 20px;
    
 }
 .all-numbers{
-    width: 100px
+    width: 400px;
+}
+button{
+    width: 100px;
+    height: 100px;
 }
 .operations{
     width: min-content;
@@ -24,12 +29,17 @@ body{
 }
 .screen,
 .non-zero{
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size:100px;
     border-style: double;
+    height: 100px;;
+
 }
 .funct{
     display: flex;
-}
-.not-needed{
-    
+    font-size: larger;
+    font-weight: bolder;
+    margin-top: 20px;
 }
