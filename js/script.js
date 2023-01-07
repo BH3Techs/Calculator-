@@ -1,6 +1,6 @@
 let ans = 0;
-let numBfrOp;
-let numAftrOp = 0;
+let numBfrOp = '..';
+let numAftrOp = '..';
 let op = "..";
 
 const btn = document.querySelectorAll(".numbers");
@@ -56,7 +56,7 @@ btn.forEach(num => {
         numBfrOp = numBfrOp.concat(e.target.textContent);
         screen.textContent = numBfrOp;
       } else {
-        if (numAftrOp !== 0) {
+        if (numAftrOp !== "..") {
           numAftrOp = numAftrOp.concat(e.target.textContent);
           screen.textContent = numBfrOp + op + numAftrOp;
         } else {
@@ -86,12 +86,16 @@ ops.addEventListener("click", (e) => {
 });
 
 equal.addEventListener("click", () => {
-  ans = operate(op, numBfrOp, numAftrOp);
+  if(numBfrOp !== '..' && numAftrOp !== '..' && op !== '..'){
+    ans = operate(op, numBfrOp, numAftrOp);
   screen.textContent = ans;
   numAftrOp = 0;
   numBfrOp = '';
   op = '';
   screen.className = 'screen';
+  }else{
+    screen.textContent = 'Error, Press Clear';
+  }
 });
 
 clear.addEventListener("click", () =>{
