@@ -13,19 +13,24 @@ body{
 }
 .all-numbers{
     width: 400px;
+    
 }
 button{
     width: 100px;
     height: 100px;
 }
 .operations{
+    display: flex;
+    flex-direction: column;
     width: min-content;
+    gap: 10px;
 }
 .final{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 20px;
+    margin: 10px;
+    
 }
 .screen,
 .non-zero{
@@ -42,4 +47,7 @@ button{
     font-size: larger;
     font-weight: bolder;
     margin-top: 20px;
+}
+.numbers{
+    margin: 5px;
 }
