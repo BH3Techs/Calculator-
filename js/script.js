@@ -5,7 +5,7 @@ let op = "..";
 
 const btn = document.querySelectorAll(".numbers");
 const screen = document.querySelector("#theScreen");
-// const scrnValue = document.querySelector("#screenValue");
+const clear = document.querySelector(".clear");
 const ops = document.querySelector(".operations");
 const equal = document.querySelector(".equal");
 
@@ -92,4 +92,11 @@ equal.addEventListener("click", () => {
   numBfrOp = '';
   op = '';
   screen.className = 'screen';
+});
+
+clear.addEventListener("click", () =>{
+  screen.textContent = "0";
+  numAftrOp = 0;
+  numBfrOp = '';
+  op = '';
 });
