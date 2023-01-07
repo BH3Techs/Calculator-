@@ -9,6 +9,7 @@ const clear = document.querySelector(".clear");
 const ops = document.querySelector(".operations");
 const equal = document.querySelector(".equal");
 const comma = document.getElementById('comma');
+const bkspc = document.querySelector('.backspace');
 
 function add(num1, num2) {
   return parseInt(num1) + parseInt(num2);
@@ -114,3 +115,16 @@ clear.addEventListener("click", () =>{
   numBfrOp = '..';
   op = '..';
 });
+
+bkspc.addEventListener('click', (e) =>{
+  let valueOnscreen = screen.textContent;
+  screen.textContent = valueOnscreen.substring(0, valueOnscreen.length-1);
+    if(numBfrOp === valueOnscreen){
+      numBfrOp = numBfrOp.substring(0,numBfrOp.length-1);
+    }else if(parseInt(valueOnscreen.charAt(valueOnscreen.length-1)).toString() == 'NaN'){
+      op = '..';
+    }else{
+      numAftrOp = numAftrOp.substring(0,numAftrOp.length-1);
+    }
+  
+})
