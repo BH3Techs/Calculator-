@@ -119,6 +119,7 @@ clear.addEventListener("click", () =>{
 bkspc.addEventListener('click', (e) =>{
   let valueOnscreen = screen.textContent;
   screen.textContent = valueOnscreen.substring(0, valueOnscreen.length-1);
+  if(numBfrOp.length>1){
     if(numBfrOp === valueOnscreen){
       numBfrOp = numBfrOp.substring(0,numBfrOp.length-1);
     }else if(parseInt(valueOnscreen.charAt(valueOnscreen.length-1)).toString() == 'NaN'){
@@ -126,5 +127,7 @@ bkspc.addEventListener('click', (e) =>{
     }else{
       numAftrOp = numAftrOp.substring(0,numAftrOp.length-1);
     }
-  
+  }else{
+    screen.textContent =0;
+  }
 })
