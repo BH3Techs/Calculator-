@@ -1,13 +1,11 @@
 let ans = 0;
 let numBfrOp;
 let numAftrOp = 0;
-let numArray = [];
-let opsArray = [];
 let op = "..";
 
 const btn = document.querySelectorAll(".numbers");
-const screen = document.querySelector(".screen");
-const scrnValue = document.querySelector("#screenValue");
+const screen = document.querySelector("#theScreen");
+// const scrnValue = document.querySelector("#screenValue");
 const ops = document.querySelector(".operations");
 const equal = document.querySelector(".equal");
 
@@ -48,23 +46,11 @@ function operate(operation, num1, num2) {
 
 btn.forEach(num => {
   num.addEventListener("click", (e) => {
-    // if(scrnValue.className == "zero"){
-    //   numBfrOp = e.target.textContent;
-    //   screen.textContent =numBfrOp;
-    //   scrnValue.className = "non-zero";
-    // }else{
-    //   if (op == "..") {
-    //     numBfrOp = numBfrOp.concat(e.target.textContent);
-    //     screen.textContent = numBfrOp;
-    //   }else{
-    //     numArray.push(numBfrOp);
-    //     op = "..";
-    //   }
-    // }
-    if (scrnValue.className == "zero") {
+    if (screen.className == "screen") {
       numBfrOp = e.target.textContent;
       screen.textContent = numBfrOp;
-      scrnValue.className = "non-zero";
+      console.log("Called ", numBfrOp);
+      screen.className = "non-zero";
     } else {
       if (op == "..") {
         numBfrOp = numBfrOp.concat(e.target.textContent);
@@ -73,7 +59,6 @@ btn.forEach(num => {
         if (numAftrOp !== 0) {
           numAftrOp = numAftrOp.concat(e.target.textContent);
           screen.textContent = numBfrOp + op + numAftrOp;
-          numArray.push(numAftrOp);
         } else {
           numAftrOp = e.target.textContent;
           screen.textContent = numBfrOp.concat(op).concat(numAftrOp);
@@ -88,14 +73,12 @@ btn.forEach(num => {
 ops.addEventListener("click", (e) => {
   if(op== ".."){
     op = e.target.textContent;
+    console.log(numBfrOp);
     screen.textContent = numBfrOp.concat(op);
   }else{
-    console.log("Hona mwanangu")
-    console.log(numBfrOp);
     numBfrOp = operate(op, numBfrOp, numAftrOp);
     console.log(numBfrOp);
     op = e.target.textContent;
-    console.log(op);
     screen.textContent = numBfrOp + op;
     numAftrOp = '';
   }
@@ -105,4 +88,8 @@ ops.addEventListener("click", (e) => {
 equal.addEventListener("click", () => {
   ans = operate(op, numBfrOp, numAftrOp);
   screen.textContent = ans;
+  numAftrOp = 0;
+  numBfrOp = '';
+  op = '';
+  screen.className = 'screen';
 });

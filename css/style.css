@@ -22,7 +22,8 @@ body{
     justify-content: space-between;
     
 }
-.screen{
+.screen,
+.non-zero{
     text-align: right;
     border-style: double;
 }
