@@ -53,15 +53,15 @@ btn.forEach(num => {
       screen.className = "non-zero";
     } else {
       if (op == "..") {
-        numBfrOp = numBfrOp.concat(e.target.textContent);
+        numBfrOp += e.target.textContent;
         screen.textContent = numBfrOp;
       } else {
         if (numAftrOp !== "..") {
-          numAftrOp = numAftrOp.concat(e.target.textContent);
+          numAftrOp = numAftrOp + e.target.textContent;
           screen.textContent = numBfrOp + op + numAftrOp;
         } else {
           numAftrOp = e.target.textContent;
-          screen.textContent = numBfrOp.concat(op).concat(numAftrOp);
+          screen.textContent = numBfrOp + op + numAftrOp;
         }
       }
     }
@@ -74,13 +74,13 @@ ops.addEventListener("click", (e) => {
   if(op== ".."){
     op = e.target.textContent;
     console.log(numBfrOp);
-    screen.textContent = numBfrOp.concat(op);
+    screen.textContent = numBfrOp + op;
   }else{
     numBfrOp = operate(op, numBfrOp, numAftrOp);
     console.log(numBfrOp);
     op = e.target.textContent;
     screen.textContent = numBfrOp + op;
-    numAftrOp = '';
+    numAftrOp = '..';
   }
 
 });
@@ -89,9 +89,9 @@ equal.addEventListener("click", () => {
   if(numBfrOp !== '..' && numAftrOp !== '..' && op !== '..'){
     ans = operate(op, numBfrOp, numAftrOp);
   screen.textContent = ans;
-  numAftrOp = 0;
-  numBfrOp = '';
-  op = '';
+  numAftrOp = '..';
+  numBfrOp = '..';
+  op = '..';
   screen.className = 'screen';
   }else{
     screen.textContent = 'Error, Press Clear';
@@ -100,7 +100,7 @@ equal.addEventListener("click", () => {
 
 clear.addEventListener("click", () =>{
   screen.textContent = "0";
-  numAftrOp = 0;
-  numBfrOp = '';
-  op = '';
+  numAftrOp = '..';
+  numBfrOp = '..';
+  op = '..';
 });
