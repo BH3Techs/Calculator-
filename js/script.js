@@ -71,16 +71,18 @@ btn.forEach(num => {
 
 
 ops.addEventListener("click", (e) => {
-  if(op== ".."){
-    op = e.target.textContent;
-    console.log(numBfrOp);
-    screen.textContent = numBfrOp + op;
-  }else{
-    numBfrOp = operate(op, numBfrOp, numAftrOp);
-    console.log(numBfrOp);
-    op = e.target.textContent;
-    screen.textContent = numBfrOp + op;
-    numAftrOp = '..';
+  if(numBfrOp !== '..'){
+    if(op== ".."){
+      op = e.target.textContent;
+      console.log(numBfrOp);
+      screen.textContent = numBfrOp + op;
+    }else{
+      numBfrOp = operate(op, numBfrOp, numAftrOp);
+      console.log(numBfrOp);
+      op = e.target.textContent;
+      screen.textContent = numBfrOp + op;
+      numAftrOp = '..';
+    }
   }
 
 });
