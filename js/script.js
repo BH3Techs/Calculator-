@@ -8,6 +8,7 @@ const screen = document.querySelector("#theScreen");
 const clear = document.querySelector(".clear");
 const ops = document.querySelector(".operations");
 const equal = document.querySelector(".equal");
+const comma = document.getElementById('comma');
 
 function add(num1, num2) {
   return parseInt(num1) + parseInt(num2);
@@ -46,21 +47,27 @@ function operate(operation, num1, num2) {
 
 btn.forEach(num => {
   num.addEventListener("click", (e) => {
-    if (screen.className == "screen") {
+    if (screen.className == "screen") {        
       numBfrOp = e.target.textContent;
       screen.textContent = numBfrOp;
       console.log("Called ", numBfrOp);
       screen.className = "non-zero";
     } else {
       if (op == "..") {
+        if(numBfrOp.includes('.')){
+          comma.disabled =true;
+        }
         numBfrOp += e.target.textContent;
         screen.textContent = numBfrOp;
       } else {
-        if (numAftrOp !== "..") {
-          numAftrOp = numAftrOp + e.target.textContent;
+        if (numAftrOp == "..") {
+          numAftrOp = e.target.textContent;
           screen.textContent = numBfrOp + op + numAftrOp;
         } else {
-          numAftrOp = e.target.textContent;
+          if(numAftrOp.includes('.')){
+            comma.disabled =true;
+          }
+          numAftrOp += e.target.textContent;
           screen.textContent = numBfrOp + op + numAftrOp;
         }
       }
@@ -71,6 +78,7 @@ btn.forEach(num => {
 
 
 ops.addEventListener("click", (e) => {
+  comma.disabled =false;
   if(numBfrOp !== '..'){
     if(op== ".."){
       op = e.target.textContent;
