@@ -52,3 +52,13 @@ button{
 .numbers{
     margin: 5px;
 }
+.clear{
+    background-color: rgb(204, 86, 86);
+
+}
+.backspace{
+    background-color: beige;
+}
+.equal{
+    background-color: antiquewhite;
+}
